@@ -1,3 +1,4 @@
+import { AuthGuard } from './../../helper/auth.guard';
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
@@ -8,6 +9,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { Role } from '../../models/role'
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -49,15 +51,16 @@ export const AdminLayoutRoutes: Routes = [
     //     path: '',
     //     children: [ {
     //         path: 'upgrade',
-    //         component: UpgradeComponent
+    //         component: UpgradeComponent  
     //     }]
     // }
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+
+    { path: 'dashboard',      component: DashboardComponent , canActivate: [AuthGuard],data: { roles: [Role.bo,Role.admin,Role.user] } },
+    { path: 'user-profile',   component: UserProfileComponent , canActivate: [AuthGuard],data: { roles: [Role.bo,Role.admin,Role.user] } },
+    { path: 'table-list',     component: TableListComponent , canActivate: [AuthGuard],data: { roles: [Role.bo,Role.admin,Role.user] } },
+    { path: 'typography',     component: TypographyComponent , canActivate: [AuthGuard],data: { roles: [Role.bo,Role.admin,Role.user] }},
+    { path: 'icons',          component: IconsComponent, canActivate: [AuthGuard],data: { roles: [Role.bo,Role.admin,Role.user] } },
+    { path: 'maps',           component: MapsComponent , canActivate: [AuthGuard],data: { roles: [Role.bo,Role.admin,Role.user] }},
+    { path: 'notifications',  component: NotificationsComponent, canActivate: [AuthGuard],data: { roles: [Role.bo,Role.admin,Role.user] } },
+    { path: 'upgrade',        component: UpgradeComponent, canActivate: [AuthGuard],data: { roles: [Role.bo,Role.admin,Role.user] } },
 ];

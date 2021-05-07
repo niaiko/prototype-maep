@@ -1,4 +1,9 @@
-import { NgModule } from '@angular/core';
+import { ErrorInterceptor } from './../../helper/error.interceptor';
+import { JwtInterceptor } from './../../helper/jwt.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { DatePipe, registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,10 +18,16 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import {MatListModule} from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+registerLocaleData(localeFr);
 
 @NgModule({
   imports: [
@@ -30,6 +41,13 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatTooltipModule,
+    MatListModule, 
+    MatTabsModule,
+    MatDatepickerModule,    
+    MatNativeDateModule,
+    MatProgressSpinnerModule,
+    MatAutocompleteModule
   ],
   declarations: [
     DashboardComponent,
@@ -40,6 +58,13 @@ import {MatSelectModule} from '@angular/material/select';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'fr-FR'},
+    MatDatepickerModule,
+    DatePipe
   ]
 })
 
