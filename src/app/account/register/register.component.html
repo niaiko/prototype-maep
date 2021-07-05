@@ -1,0 +1,166 @@
+<div class="container-fluid px-0 background1" >
+    <div class="background2 row d-flex justify-content-center align-items-center">
+        <div class="card-register col-10 col-md-10 col-lg-11 my-5 py-5 px-4 text-light">
+            <p class="h3 text-center mb-5">S'identifier</p>
+            <div class="card-body">
+                <form  (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Prénom" [(ngModel)]="personne.prenoms"   [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }">
+                                <mat-error *ngIf="submitted && f.prenom.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.prenom.errors.required">Prénom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Nom" [(ngModel)]="personne.nom" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }">
+                                <mat-error *ngIf="submitted && f.nom.errors" class="invalid-feedback" style="text-align: right;">
+                                <div *ngIf="f.nom.errors.required">Nom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Contact" type="text" [(ngModel)]="personne.contact" [ngClass]="{ 'is-invalid': submitted && f.contact.errors }">
+                                <mat-error *ngIf="submitted && f.contact.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.contact.errors.required">Contact requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Addresse Email " type="text" [(ngModel)]="personne.mail" [ngClass]="{ 'is-invalid': submitted && f.mail.errors }">
+                                <mat-error *ngIf="submitted && f.mail.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.mail.errors.required">Addresse Email requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Lieu De Naissance" type="text" [(ngModel)]="personne.lieuNaiss" [ngClass]="{ 'is-invalid': submitted && f.lieuNaiss.errors }">
+                                <mat-error *ngIf="submitted && f.lieuNaiss.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.lieuNaiss.errors.required">Lieu De Naissance requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Date De Naissance" type="text" [(ngModel)]="personne.dateNaiss" [ngClass]="{ 'is-invalid': submitted && f.dateNaiss.errors }">
+                                <mat-error *ngIf="submitted && f.dateNaiss.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.dateNaiss.errors.required">Date De Naissance requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="CIN" type="text" [(ngModel)]="personne.cin" [ngClass]="{ 'is-invalid': submitted && f.cin.errors }">
+                                <mat-error *ngIf="submitted && f.cin.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.cin.errors.required">CIN requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Genre" type="text" [(ngModel)]="personne.sexe" [ngClass]="{ 'is-invalid': submitted && f.sexe.errors }">
+                                <mat-error *ngIf="submitted && f.sexe.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.sexe.errors.required">Sexe requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-5">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Nationalité" type="text" [(ngModel)]="personne.national" [ngClass]="{ 'is-invalid': submitted && f.national.errors }">
+                                <mat-error *ngIf="submitted && f.national.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.national.errors.required">Nationalité requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Status" type="text" [(ngModel)]="personne.idStatus" [ngClass]="{ 'is-invalid': submitted && f.idStatus.errors }">
+                                <mat-error *ngIf="submitted && f.idStatus.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.idStatus.errors.required">Nom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="idSecteur" type="text" [(ngModel)]="personne.idSecteur" [ngClass]="{ 'is-invalid': submitted && f.idSecteur.errors }">
+                                <mat-error *ngIf="submitted && f.idSecteur.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.idSecteur.errors.required">Nom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="banque" type="text" [(ngModel)]="personne.banque" [ngClass]="{ 'is-invalid': submitted && f.banque.errors }">
+                                <mat-error *ngIf="submitted && f.banque.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.banque.errors.required">Nom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="idModePaiement" type="text" [(ngModel)]="personne.idModePaiement" [ngClass]="{ 'is-invalid': submitted && f.idModePaiement.errors }">
+                                <mat-error *ngIf="submitted && f.idModePaiement.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.idModePaiement.errors.required">Nom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="idTypeMdp" type="text" [(ngModel)]="personne.idTypeMdp" [ngClass]="{ 'is-invalid': submitted && f.idTypeMdp.errors }">
+                                <mat-error *ngIf="submitted && f.idTypeMdp.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.idTypeMdp.errors.required">Nom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="codeAdresse" type="text" [(ngModel)]="personne.codeAdresse" [ngClass]="{ 'is-invalid': submitted && f.codeAdresse.errors }">
+                                <mat-error *ngIf="submitted && f.codeAdresse.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.codeAdresse.errors.required">Nom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="lot" type="text" [(ngModel)]="personne.lot" [ngClass]="{ 'is-invalid': submitted && f.lot.errors }">
+                                <mat-error *ngIf="submitted && f.lot.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.lot.errors.required">Nom requis</div></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+
+                    <!--<div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                    <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="hide-hover">
+                                    <i class="material-icons">{{hide ? 'visibility_off' : 'visibility'}}</i></a>
+                                <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback" style="text-align: right;">
+                                    <div *ngIf="f.password.errors.required">Mot de passe requis</div>
+                                    <div *ngIf="f.password.errors.minlength">Le mot de passe doit etre plus de 6 caractère</div>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Confirmer votre mot de passe" type="password" formControlName="confimPassword" disabled>
+                            </mat-form-field>
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <button [disabled]="loading" class="btn btn-success pull-right">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            enregistrer
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <p class="mt-2">J'ai deja un compte <a class="text-success" routerLink="/login">S'identifier</a> </p>
+
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 import { AccountService } from '../../services/account/account.service';
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   hide = true;
+  status: any
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -27,12 +29,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      matricule: new FormControl('', [Validators.required]), /* j'ai changer email par matricule et j'ai effacer Validators.email */
       password: new FormControl('', [Validators.required])
     });
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '';
+    this.getLocalStorage()
+    if(this.status === "Technicien"){
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'profile';//redirection
+      console.log('this.returnUrl =>', this.returnUrl);
+    }else{
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'profileIndividu';//redirection
+      console.log('this.returnUrl =>', this.returnUrl);
+    }
+
+
   }
 
   public hasError = (controlName: string, errorName: string) => {
@@ -46,21 +57,23 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
 
-    this.accountService.login(this.f.email.value, this.f.password.value)
+    this.accountService.login(this.f.matricule.value, this.f.password.value)
         .pipe(first())
         .subscribe(
             data => {
+
                 this.router.navigate([this.returnUrl]);
+
                 this.loading = false;
-                //console.log("Tafiditra=",data);
+                console.log("Tafiditra=",data);
                 //this.notification.showNotification('top','center','success');
             },
             error => {
                 //this.showDanger(error);
                 //this.notification.showNotification('top','center','danger');
-                //console.log("Error=",error);
+                console.log("Error=",error);
                 this.loading = false;
-                this.showNotification('top', 'right', 'danger', 'Mots de passe ou utilisateur incorrect');
+                this.showNotification('top', 'right', 'danger', 'Mots de passe ou utulisateur incorrect');
             });
 }
 
@@ -82,7 +95,7 @@ showNotification(from, align, infoType, msg) {
     },
     template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
       '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
-      '<i class="material-icons" data-notify="icon">notifications</i> ' +
+      '<i class="material-icons" data-notify="icon"></i> ' +
       '<span data-notify="title">{1}</span> ' +
       '<span data-notify="message">{2}</span>' +
       '<div class="progress" data-notify="progressbar">' +
@@ -92,5 +105,9 @@ showNotification(from, align, infoType, msg) {
       '</div>'
   });
 }
+  getLocalStorage() {
+    let values = JSON.parse(localStorage.getItem("user"));
+    this.status = values.individu.status.libelleStatus
+  }
 
 }

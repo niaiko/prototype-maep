@@ -1,0 +1,13 @@
+.border-card{
+    min-height: 310px;
+    box-shadow: 0 0 20px rgba(36, 38, 37, 0.7);
+}
+.text-color{
+    color: #3b1f09;
+}
+.font-btn{
+    background-color: rgb(201, 105, 58);
+}
+.font-btn:hover{
+    background-color: rgb(90, 125, 50);
+}

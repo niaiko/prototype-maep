@@ -12982,7 +12982,7 @@ h2.title {
       content: "";
       display: block;
       background: #FFFFFF;
-      opacity: .93; }
+      opacity: .93;}
   .sidebar .logo {
     padding: 15px 0px;
     margin: 0;
@@ -13033,7 +13033,7 @@ h2.title {
   .sidebar[data-background-color="black"] .nav .nav-item.active [data-toggle="collapse"], .sidebar[data-background-color="black"] .nav .nav-item:hover [data-toggle="collapse"] {
     color: #fff; }
     .sidebar[data-background-color="black"] .nav .nav-item.active [data-toggle="collapse"] i, .sidebar[data-background-color="black"] .nav .nav-item:hover [data-toggle="collapse"] i {
-      color: rgba(255, 255, 255, 0.8); }
+      color: rgba(255, 255, 255, 0.8);
   .sidebar[data-background-color="black"] .user a {
     color: #fff; }
   .sidebar[data-background-color="black"] .simple-text {

@@ -1,0 +1,38 @@
+<div class="container-fluid fond1">
+    <div class="row card-profile">
+        <div class=" col-12 col-md-3 " style="display: flex; justify-content: flex-end;align-items: center">
+            <div class="rounded-circle image-border"><img src="assets/img/faces/profile-vide-298x298.jpg" alt="Admin" class="rounded-circle" width="150"></div>
+            <img src="assets/img/faces/profil-femme.jpg" *ngIf="sexe == 'F'" alt="Admin" class="rounded-circle image-border" width="150">
+
+        </div>
+        <div class=" col-12 col-md-6">
+            <h2 class="text-color text-bold text-center">PRODUCTEUR</h2>
+            <p class="text-left">
+                <span class="text-left h3">Nom: <span class="text-color text-bold h3">{{nom | uppercase}}</span></span><br>
+            <span>Prénom: <span class="text-color text-bold h4">{{prenom | titlecase}}</span></span> <br>
+            <span>CIN: <span class="text-color text-bold h4">{{cin}}</span></span> <br>
+            <span>Laharana Finday: <span class="text-color text-bold h4">{{contact}}</span></span> <br>
+            <span>Faritra: <span class="text-color text-bold h4">{{nomRegion | titlecase}}</span></span><br>
+            <span>Distrika: <span class="text-color text-bold h4">{{nomDistrict | titlecase}}</span></span><br>
+            <span>Kaominina: <span class="text-color text-bold h4">{{nomCommune | titlecase}}</span></span><br>
+            </p>
+
+
+        </div>
+        <div class=" col-12 col-md-3" style="display: flex; justify-content: flex-start;align-items: center">
+            <img src="./assets/img/LOGO MAEP.png" alt="Logo" width="200">
+
+        </div>
+
+    </div>
+   <div class="row mt-1">
+       <div class="col col-md-3">
+
+       </div>
+       <div class="col col-md-9">
+           <app-card></app-card>
+       </div>
+   </div>
+</div>
+
+

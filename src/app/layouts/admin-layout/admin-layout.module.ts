@@ -27,6 +27,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {ProfilComponent} from "../../profil/profil.component";
+import {SimulationComponent} from "../../simulation/simulation.component";
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -58,6 +60,9 @@ registerLocaleData(localeFr);
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+      ProfilComponent,
+      SimulationComponent
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

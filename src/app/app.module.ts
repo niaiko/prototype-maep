@@ -34,6 +34,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SimulationComponent } from './simulation/simulation.component';
+import { ProfilComponent } from './profil/profil.component';
+import { RegisterComponent } from './account/register/register.component';
+import {DropDownsModule} from "@progress/kendo-angular-dropdowns";
+import { ProfilIndividusComponent } from './profil-individus/profil-individus.component';
+import { CardComponent } from './componentsutul/card/card.component';
 enableProdMode();
 
 @NgModule({
@@ -45,6 +51,7 @@ enableProdMode();
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    DropDownsModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
@@ -60,7 +67,12 @@ enableProdMode();
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ProfilIndividusComponent,
+    CardComponent
+    //SimulationComponent,
+    //ProfilComponent
 
   ],
   providers: [

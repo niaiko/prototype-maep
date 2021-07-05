@@ -1,0 +1,16 @@
+.background1{
+    background: url("../../../assets/images/fond_login.jpg") no-repeat fixed center;
+    background-size: cover;
+}
+.background2{
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom right, rgba(40, 164, 66,1) 20%, rgba(28, 201, 33,0.1));
+}
+.card-register{
+
+    min-height: 90vh;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    background-color: rgba(36, 38, 37, 0.7);
+    box-shadow: 0 0 20px rgba(36, 38, 37, 0.7);
+}

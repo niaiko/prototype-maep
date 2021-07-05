@@ -35,9 +35,8 @@ sendClickEvent() {
 getClickEvent(): Observable<any> {
   return this.subject.asObservable();
 }
-
-login(email, password) {
-  return this.http.post<User>(`${environment.apiUrl}/api/auth/signin`, { email, password })
+login(matricule, password) {
+  return this.http.post<User>(`${environment.apiUrl2}api/user/connecter`, { matricule, password })
       .pipe(map(user => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('user', JSON.stringify(user));
@@ -56,13 +55,13 @@ logout() {
 sendLogout() {
   var data = { "username": this.userValue.username, "email": this.userValue.email };
   //console.log(data);
-  this.http.post(`${environment.apiUrl}/api/auth/logout`, data).subscribe((data) => {
+  this.http.post(`${environment.apiUrl2}/api/auth/logout`, data).subscribe((data) => {
       //console.log(data);
   });
 }
 
-register(user: User) {
-  return this.http.post(`${environment.apiUrl}/api/auth/signup`, user);
+register(inscrire) {
+  return this.http.post(`${environment.apiUrl2}/api/auth/inscrire`,  inscrire);
 }
 
 
